@@ -29,20 +29,22 @@ export default function Market() {
             height: 60,
           }}
         />
-        <YStack>
-          <Text fontSize="$6">Name Market</Text>
-          <Text fontSize="$4">Name Market</Text>
+        <YStack gap="$2">
+          <Text fontSize="$6" fontWeight={"700"}>
+            Mercado Central
+          </Text>
+          <Text fontSize="$4">2 stands share food</Text>
         </YStack>
       </XStack>
-      <Text fontSize={"$6"}>Donors:</Text>
+      <Text fontSize={"$6"}>Stands:</Text>
       <ScrollView>
         <YStack gap="$4" f={1}>
           {MARKET_DONORS.map((donor, i) => {
             return (
               <Link key={i} href={{ pathname: "/market/donor" }} asChild>
-                <Button bg={"$blue10Light"} height={"auto"}>
-                  <XStack gap={"$2"} p="$2" justifyContent="flex-start">
-                    <FontAwesome name="book" size={30} />
+                <Button bg={"white"} height={"auto"}>
+                  <XStack gap={"$4"} px="$2" py="$4" f={1} alignItems="center">
+                    <FontAwesome name="home" size={34} />
                     <YStack gap="$2">
                       <Text fontSize={"$6"} fontWeight={"bold"}>
                         {donor.tradename}
@@ -54,6 +56,13 @@ export default function Market() {
                         STAND: {donor.stand}
                       </Text>
                     </YStack>
+                    <FontAwesome
+                      name="chevron-right"
+                      size={20}
+                      style={{
+                        marginLeft: "auto",
+                      }}
+                    />
                   </XStack>
                 </Button>
               </Link>

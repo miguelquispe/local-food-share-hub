@@ -10,6 +10,11 @@ import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 import { TamaguiProvider } from "tamagui";
 import config from "../tamagui.config";
+import appConfig from "../tamagui.config";
+import {
+  SafeAreaProvider,
+  initialWindowMetrics,
+} from "react-native-safe-area-context";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -53,14 +58,41 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <TamaguiProvider config={config}>
-      <Stack>
-        <Stack.Screen name="index" />
-        <Stack.Screen name="map" />
-        <Stack.Screen name="market/index" />
-        {/* <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> */}
-        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-      </Stack>
+    <TamaguiProvider config={appConfig}>
+      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+        <Stack>
+          <Stack.Screen
+            name="index"
+            options={{
+              headerShown: false,
+              headerLeft: () => (
+                <FontAwesome.Button
+                  name="bars"
+                  size={24}
+                  backgroundColor="transparent"
+                  onPress={() => {
+                    console.log("pressed");
+                  }}
+                />
+              ),
+            }}
+          />
+          <Stack.Screen
+            name="map"
+            options={{
+              title: "Nearby Markets",
+            }}
+          />
+          <Stack.Screen
+            name="market"
+            options={{
+              headerShown: false,
+            }}
+          />
+          {/* <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> */}
+          {/* <Stack.Screen name=r"modal" options={{ presentation: "modal" }} /> */}
+        </Stack>
+      </SafeAreaProvider>
     </TamaguiProvider>
   );
 }

@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import React, { useState } from "react";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { useNavigation } from "expo-router";
 import { router } from "expo-router";
 import { markets } from "../constants/Markets";
@@ -8,8 +8,8 @@ import { markets } from "../constants/Markets";
 const initialRegion = {
   latitude: -12.046374,
   longitude: -77.042793,
-  longitudeDelta: 0.04,
-  latitudeDelta: 0.02,
+  longitudeDelta: 0.1,
+  latitudeDelta: 0.1,
 };
 
 export default function Map() {
@@ -19,7 +19,11 @@ export default function Map() {
 
   return (
     <View style={{ flex: 1 }}>
-      <MapView initialRegion={initialRegion} style={{ flex: 1 }}>
+      <MapView
+        initialRegion={initialRegion}
+        style={{ flex: 1 }}
+        provider={PROVIDER_GOOGLE}
+      >
         {markets.map((market, index) => (
           <Marker
             key={index}
