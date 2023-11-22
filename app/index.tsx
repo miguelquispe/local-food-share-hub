@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <YStack f={1} p={"$3"}>
+      <YStack f={1} p={"$3"} bg={"$yellow4Light"}>
         <XStack p="$4" borderRadius={20} bg={"white"}>
           <XStack gap="$4" f={1}>
             <FontAwesome name="user" size={20} />
@@ -22,8 +22,12 @@ export default function Home() {
         </XStack>
         <YStack p="$6" justifyContent="center" f={1}>
           <YStack gap={"$2"} mb="$10">
-            <Heading textAlign="center">LOCAL FOOD</Heading>
-            <Heading textAlign="center">SHARE HUB</Heading>
+            <Heading fontSize={30} textAlign="center" color={"$green10"}>
+              LOCAL FOOD
+            </Heading>
+            <Heading fontSize={30} textAlign="center" color={"$green10"}>
+              SHARE HUB
+            </Heading>
           </YStack>
           <Link href={"/map"} asChild>
             <ButtonApp

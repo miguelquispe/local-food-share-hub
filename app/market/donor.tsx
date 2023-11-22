@@ -28,7 +28,7 @@ export default function Donor() {
 
   return (
     <SafeAreaView style={{ flex: 1 }} edges={["left", "right", "bottom"]}>
-      <Stack p="$4" f={1} gap="$4">
+      <Stack p="$4" f={1} gap="$4" bg={"$yellow4Light"}>
         <XStack bg={"white"} p="$4" gap="$4" borderRadius={"$4"} mb="$4">
           <Image
             source={{

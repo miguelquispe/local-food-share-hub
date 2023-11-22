@@ -8,9 +8,11 @@ export default function Home() {
   const [selectedMarket, setSelectedMarket] = useState(null);
 
   return (
-    <YStack p="$6" justifyContent="center">
+    <YStack f={1} p="$6" justifyContent="center" bg={"$yellow4Light"}>
       <YStack gap={"$2"} mb="$10">
-        <Heading textAlign="center">CONGRATS!!!</Heading>
+        <Heading textAlign="center" fontSize={30} color={"$green10"}>
+          CONGRATS!!!
+        </Heading>
         <Heading textAlign="center">
           Today you can pick up your products at 11:00 a.m.
         </Heading>

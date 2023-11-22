@@ -20,7 +20,7 @@ export default function Market() {
   const MARKET_DONORS = DONORS.filter((donor) => donor.market === MARKET_ID);
   // console.log(TOTAL_DONORS);
   return (
-    <Stack p="$4" f={1} gap="$4">
+    <Stack p="$4" f={1} gap="$4" bg={"$yellow4Light"}>
       <XStack bg={"white"} p="$4" gap="$4" borderRadius={"$4"}>
         <Image
           source={{
